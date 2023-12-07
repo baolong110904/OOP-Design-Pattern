@@ -15,6 +15,7 @@ void BookTaxi::bookLuxurySeats(BookTaxi& taxi){
 }
 void BookTaxi::book(){
     cout << serviceName << " is coming to Client!" << endl;
+    mediator->notifyBooking(serviceName, brandName);
 }
 
 //Book a motorbike Service
@@ -27,6 +28,7 @@ void BookMotorBike::bookLuxuryBike(BookMotorBike& bike){
 }
 void BookMotorBike::book(){
     cout << serviceName  << " is coming to Client!"<< endl;
+    mediator->notifyBooking(serviceName, brandName);
 }
 
 
@@ -42,4 +44,5 @@ void BookFB::bookMainCourse(BookFB& mc){
 }
 void BookFB::book(){
     cout << serviceName << " of " << brandName << " is being delivered to Client!"<< endl;
+    mediator->notifyBooking(serviceName, brandName);
 }

@@ -6,11 +6,11 @@ Application::Application() {
     bookingService = new BookingService();
 }
 
-void Application::bookTaxiByCash(string email, int numSeats) {
+void Application::bookTaxiByCash(Client& client, int numSeats) {
     BookTaxi* taxi = new BookTaxi("Taxi", "Grab");
-    accountService->getAccount(email);
+    string email = client.getEmail();
     paymentService->PaymentByCash();
-
+    cout << "Booking a taxi for " << email << endl;
     // Book taxi with specific details
     if (numSeats <= 4) {
         taxi->book4Seats(*taxi);
@@ -22,8 +22,22 @@ void Application::bookTaxiByCash(string email, int numSeats) {
     taxi->book();
 }
 
+// Function to book motorbike by credit card
+void Application::bookBikeByCreditCard(Client& client) {
+    BookMotorBike* bike = new BookMotorBike("Motorbike", "Honda");
+
+    // Book motorbike with specific details
+    bike->book();
+    
+
+    // Choose credit card payment
+    paymentService->PaymentByCreditCard();
+}
+
 void Application::chooseService() {
     int choice;
+    // get Client Information;
+    cin >> client;
 
     // Display available services
     cout << "Choose a service:\n";
@@ -63,29 +77,23 @@ void Application::chooseService() {
         return;
     }
     if (choice == 1) { // If the chosen service is Taxi
-        int num;
-        cout << "Enter your preferred number of seats (e.g., 4, 7, Luxury): ";
-        cin >> num;
+        string s;
+        cout << "Enter your preferred type of seats (e.g., 4, 7, Luxury): ";
+        getline(cin, s);
 
-        if (num > 0) {
-            bookTaxiByCash(client->getEmail(), num);
+        if (s == "Luxury" || s == "luxury") {
+            bookTaxiByCash(client, 8); // Pass 0 for luxury seats
         } else {
-            cout << "Invalid number of seats!" << endl;
+            try {
+                int numSeats = stoi(s);
+                if (numSeats > 0) {
+                    bookTaxiByCash(client, numSeats);
+                } else {
+                    cout << "Invalid type of seat!" << endl;
+                }
+            } catch (const std::invalid_argument& e) {
+                cout << "Invalid input! Please enter a valid number or 'Luxury'." << endl;
+            }
         }
     }
-}
-
-
-
-// Function to book motorbike by credit card
-void Application::bookBikeByCreditCard(string pickupLocation, string destination) {
-    BookMotorBike* bike = new BookMotorBike("Motorbike", "Honda");
-
-    // Book motorbike with specific details
-    bike->book();
-    cout << "Pickup location: " << pickupLocation << endl;
-    cout << "Destination: " << destination << endl;
-
-    // Choose credit card payment
-    paymentService->PaymentByCreditCard();
 }

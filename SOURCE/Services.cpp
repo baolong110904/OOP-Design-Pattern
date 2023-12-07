@@ -22,10 +22,6 @@ BookingService::BookingService(){
     serviceName = "Null";
     brandName = "Null";
 }
-BookingService::BookingService(string serviceName, string brandName){
-    this->serviceName = serviceName;
-    this->brandName = brandName;
-}
 bool BookingService::isAvailable(){
     return true;
 }
