@@ -1,8 +1,11 @@
+#ifndef HEADER_H
+#define HEADER_H
 
-#pragma once
-#include <bits/stdc++.h>
 #include <iostream>
 #include <cctype>
+#include <math.h>
+#include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -25,16 +28,13 @@ public:
     void setPhone(string phoneNumber);
     void setEmail(string emailAddress);
     void setHouse(string houseAddress);
-
-    // friend ostream& operator<<(ostream& os, const Client& client);
-    // friend istream& operator>>(istream& is, Client& client);
-
 };
 
 class AccountService{
 public:
     void getAccount(string email);
 };
+
 class PaymentService{
 public:
     void PaymentByPaypal();
@@ -42,12 +42,14 @@ public:
     void PaymentByBankingAccount();
     void PaymentByCash();
 };
+
 class ServiceMediator {
 public:
     void notifyBooking(const string& serviceName, const string& brandName) {
         cout << "Mediator: Notifying that " << serviceName << " of " << brandName << " is booked!" << endl;
     }
 };
+
 class BookingService{
 protected:
     string serviceName;
@@ -59,6 +61,7 @@ public:
     bool isAvailable();
     virtual void book();
 };
+
 class BookTaxi : public BookingService {
 public:
     BookTaxi(ServiceMediator* mediator, string serviceName, string brandName) : BookingService(mediator, serviceName, brandName) {};
@@ -100,3 +103,4 @@ public:
 };
 
 
+#endif

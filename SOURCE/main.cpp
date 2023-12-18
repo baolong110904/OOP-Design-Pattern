@@ -1,14 +1,9 @@
 #include "header.h"
-#include "Client.cpp"
-#include "Services.cpp"
-#include "BookingServices.cpp"
-//#include "test.cpp"
-#include "Application.cpp"
 
 int main() {
-    Client client1("Nguyen Van A", "090888888", "nguyenvana@gmail.com", "123 Tran Hung Dao");
-    Client client2("Nguyen Thi B", "012345678", "nguyenthib@gmail.com", "456 Nguyen Van Cu");
-    Client client3("Tran Le C", "098765432", "tranlec@gmail.com", "789 Nguyen Tri Phuong");
+    Client client1("Bui Minh Quan", "090888888", "BuiMinhQuanGay@gmail.com", "123 Tran Hung Dao");
+    Client client2("Luong Quoc Dung", "012345678", "LuongQuocDung@gmail.com", "456 Nguyen Van Cu");
+    Client client3("Nguyen Thien Bao", "098765432", "NguyenThienBao@gmail.com", "789 Nguyen Tri Phuong");
 
     ServiceMediator mediator;  // Create a mediator object
 

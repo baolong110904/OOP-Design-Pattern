@@ -1,6 +1,6 @@
-#pragma once
 #include "header.h"
 
+//Client constructor
 Client::Client(){
     Name = "Null";
     phoneNumber = "Null";
@@ -16,6 +16,7 @@ Client::Client(string Name, string phoneNumber, string emailAddress, string hous
 bool Client::isAccessingApp() {
     return true;
 }
+//Constructor gettors - settors
 void Client::setEmail(string emailAddress){
     this->emailAddress = emailAddress;
 }
@@ -40,26 +41,3 @@ string Client::getHouse(){
 void Client::setHouse(string houseAddress){
     this->houseAddress = houseAddress;
 }
-// ostream& operator<<(ostream& os, const Client& client) {
-//     os << "Name: " << client.Name << endl;
-//     os << "Phone Number: " << client.phoneNumber << endl;
-//     os << "Email address: " << client.emailAddress << endl;
-//     os << "House address: " << client.houseAddress << endl;
-//     return os;
-//     }
-// istream& operator>>(istream& is, Client& client) {
-//     cout << "Enter Name: ";
-//     is >> client.Name;
-
-//     cout << "Enter Phone Number: ";
-//     is >> client.phoneNumber;
-
-//     cout << "Enter Email Address: ";
-//     is >> client.emailAddress;
-
-//     cout << "Enter House Address: ";
-//     is.ignore();
-//     getline(is, client.houseAddress);
-
-//     return is;
-// }

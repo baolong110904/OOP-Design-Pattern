@@ -1,9 +1,7 @@
-#pragma once
 #include "header.h"
 
 
-//Book a Taxi Service
-
+//Book a Taxi Services
 void BookTaxi::book7Seats(BookTaxi& taxi){
     cout << "Client is booking 7-seat" << taxi.serviceName << " of " << taxi.brandName << endl;
 }
@@ -18,8 +16,7 @@ void BookTaxi::book(){
     mediator->notifyBooking(serviceName, brandName);
 }
 
-//Book a motorbike Service
-
+//Book a motorbike Services
 void BookMotorBike::bookNormalBike(BookMotorBike& bike){
     cout << "Client is booking a normal" << bike.serviceName << " of " << bike.brandName << endl;
 }

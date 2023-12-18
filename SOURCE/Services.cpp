@@ -1,10 +1,8 @@
-#pragma once
 #include "header.h"
 
 void AccountService::getAccount(string email){
     cout << "Getting the account of " << email << endl;
 }
-
 void PaymentService::PaymentByPaypal(){
     cout << "Payment by PayPal" << endl;
 }
