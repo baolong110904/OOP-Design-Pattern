@@ -3,10 +3,13 @@
 using namespace std;
 
 //Application Constructor
-Application::Application() {
+Application::Application(vector<Client> c) {
     accountService = new AccountService();
     paymentService = new PaymentService();
     bookingService = new BookingService(new ServiceMediator(), "", "");
+    for (auto i : c){
+        client.push_back(i);
+    }
 }
 //Function for Client to choose the Booking services
 void Application::chooseService() {

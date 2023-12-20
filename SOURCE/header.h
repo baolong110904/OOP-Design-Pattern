@@ -6,6 +6,7 @@
 #include <math.h>
 #include <string>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -93,9 +94,12 @@ protected:
     AccountService* accountService;
     PaymentService* paymentService;
     BookingService* bookingService;
-    Client client;
+    vector<Client> client;
 public:
-    Application();
+    Application(vector<Client> c);
+    Client getClient(int i){
+        return client[i];
+    }
     void bookTaxi(string servicename, string brandname, string typeOfPayment, string pickupLocation, string dropOffLocation, int numseat, string typeseat);
     void bookBike(string servicename, string brandname, string typeOfPayment, string pickupLocation, string destination, string typeseat);
     void bookFB(string servicename, string brandname, string typeOfPayment, string restaurant, string destination, string typeofFB);
