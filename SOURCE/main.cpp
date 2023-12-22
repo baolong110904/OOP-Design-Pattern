@@ -1,7 +1,4 @@
-#include "Services.cpp"
-#include "Application.cpp"
-#include "BookingServices.cpp"
-#include "Client.cpp"
+#include "header.h"
 
 int main() {
     Client client1("Bui Minh Quan", "090888888", "BuiMinhQuanGay@gmail.com", "123 Tran Hung Dao");
